@@ -24,21 +24,21 @@ docker-compose up -d
 ## Step 2: Create Kafka Topics
 
 ### First topic for valid/successful messages
-
+```
 docker exec -it kafka1 kafka-topics --create \
 --topic datalake \
 --bootstrap-server kafka1:9092 \
 --partitions 3 \
 --replication-factor 3
-
+```
 ### Sconed topic one for Dead Letter Queue topic(DLQ)
-
+```
 docker exec -it kafka1 kafka-topics --create \
 --topic datalakedlq \
 --bootstrap-server kafka1:9092 \
 --partitions 3 \
 --replication-factor 3
-
+```
 ### Step 3: Run the Kafka Producer
 ```
 python kafka_producer.py
